@@ -1,0 +1,113 @@
+<!doctype html>
+{% extends "layout.html" %}
+{% block body %}
+<title>Upload New Car - John Inglis Car Sales</title>
+<h2>Upload New Car</h2>
+<form action = "" method=post enctype=multipart/form-data>
+
+	<p>Year: 		<select id="year" name="year" selected=2000></select><select id="plate" name="plate"></select><br><br>
+
+    <p>Make: 		<br><input type=text size=30 name=make required>
+    <p>Model: 		<br><input type=text size=30 name=model required>
+    <p>Variation: 	<br><input type=text size=30 name=trim required>
+	<p>Colour: 		<br><input type=text size=30 name=colour required> <br><br>
+
+	<p>Transmission:	<select id="transmission" name="transmission">
+						<option value="-1">Select Transmission</option>
+						<option value="Manual">Manual</option>
+						<option value="Automatic">Automatic</option>
+    				</select>
+
+	<p>Doors: 		<select id="doors" name="doors">
+						<option value="-1">Select Number of Doors</option>
+						<option value="3DR">3DR</option>
+						<option value="3DR">4DR</option>
+						<option value="5DR">5DR</option>
+    				</select>
+	
+	<p>Owners: 		<select id="owners" name="owners">
+    				</select> if car is new, please put 0. <br><br>
+	
+	<p>Features
+	<br><input type="checkbox" name="ac" value="True">Air Conditioning
+	<br><input type="checkbox" name="alloys" value="True">Alloy Wheels
+	<br><input type="checkbox" name="abs" value="True">Anti-Lock Braking System
+	<br><input type="checkbox" name="cd" value="True">CD Player
+	<br><input type="checkbox" name="cl" value="True">Central Locking
+	<br><input type="checkbox" name="em" value="True">Electric Mirrors
+	<br><input type="checkbox" name="eps" value="True">Electric Power Steering
+	<br><input type="checkbox" name="ew" value="True">Electric Windows
+	<br><input type="checkbox" name="fogs" value="True">Front Foglights
+	<br><input type="checkbox" name="fsh" value="True">Full Service History
+	<br><input type="checkbox" name="ipod" value="True">iPod Lead
+	<br><input type="checkbox" name="pas" value="True">Power Assisted Steering
+	<br><br>
+	<p>Additional Features: <br><input type=text size=30 name=extras> enter commas after each e.g "Leather Seats,Spoiler"
+    <p>Price: 		<br><input type=number size=text name=price value=-1 required> if price is unknown, please leave as "-1". 
+	<p>Milage: 		<br><input type=number size=text name=milage required>
+	<br><br>
+
+	
+	
+	
+	<p><input type=submit value=Upload>
+
+</form>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>jQuery.noConflict();</script> 
+<script>
+
+var $yearSelect = jQuery('#year');
+var $plateSelect = jQuery('#plate');
+var $ownersSelect = jQuery('#owners');
+
+
+jQuery(function(){
+
+    buildYear();
+	buildPlate();
+	buildOwners();
+});
+
+
+function buildYear()
+{
+    var baseYear = 2020,
+		endYear = 1990;
+    $yearSelect.empty();
+    $yearSelect.append('<option value="-1">Select Year</option>');
+    for(var yyyy=baseYear; yyyy>=endYear; yyyy--)
+    {
+        $yearSelect.append('<option value="' + yyyy + '">' + yyyy +'</option>');    
+    }
+}
+
+function buildPlate()
+{
+    var baseYear = ["J","K","L","M","N","P","R","S","T","V","W","X","Y","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69"];
+    $plateSelect.empty();
+    $plateSelect.append('<option value="-1">Select Age</option>');
+	
+    for(var i = baseYear.length-1; i > 0; i--)
+    {
+        $plateSelect.append('<option value="' + baseYear[i] + '">' + baseYear[i] +'</option>');    
+    }
+}
+
+
+function buildOwners()
+{
+    $ownersSelect.empty();
+    $ownersSelect.append('<option value="-1">Select Number of Owners</option>');
+    for(var i=0; i<10; i++)
+    {
+        $ownersSelect.append('<option value="' + i + '">' + i +'</option>');    
+    }
+}
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+
+
+<link rel="stylesheet" href="../static/thumbnailviewer.css" type="text/css" />
+
+<script src="../static/js/thumbnailviewer.js" type="text/javascript">
+
+/***********************************************
+* Image Thumbnail Viewer Script- © Dynamic Drive (www.dynamicdrive.com)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<!doctype html>
+{% extends "layout.html" %}
+{% block body %}
+
+<title>{{post['make']}} {{post['model']}} {{post['trim']}} - John Inglis Car Sales</title>
+
+<car-info>
+<h4>{{post['year']}} ({{post['plate']}}) | {{post['make']}} {{post['model']}} {{post['trim']}} {{post['doors']}}
+	
+<div class='priceid'>{% if post['price'] != "-1" %}Price: £{{post['price']}}{% else %}No Price Available{% endif %}
+</div>
+
+</h4>
+
+
+<image-box>
+
+	{% if post['imageNumber'] != 0 %}
+	
+		<a href='../{{images[0]}}' rel="thumbnail"><img src='../{{images[0]}}' style="width:100%;display:block;"></a>	
+
+	<div class='thumbnail-box'>
+		{% for i in range(1, post['imageNumber']) %}
+			<a href='../{{images[i]}}' rel="thumbnail"><img src='../{{images[i]}}' style="height:100%;"></a>
+		{% endfor %}
+	</div>
+	
+	{% else %}
+	
+		<img src='../static/car-photos/default.JPG' style="width:100%;display:block;">
+		<div class='thumbnail-box'>No photos currently available. <br> Please call 0131 663 2474 for additional details.</div>
+		
+	{% endif %}	
+		
+</image-box>
+
+<overview-box>
+Vehicle Summary<br>
+	
+
+	
+	
+<table style="width:100%">
+  <tr>
+    <td>Car</td>
+    <td style="text-align:right;">{{post['make']}} {{post['model']}} {{post['trim']}}</td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td style="text-align:right;">{{post['year']}} ({{post['plate']}} plate)</td>		
+  </tr>
+  <tr>
+    <td>Colour</td>
+    <td style="text-align:right;">{{post['colour']}}</td>		
+  </tr>
+  <tr>
+    <td>Doors</td>
+    <td style="text-align:right;">{{post['doors']}}</td>		
+  </tr>
+  <tr>
+    <td>Transmission</td>
+    <td style="text-align:right;">{{post['transmission']}}</td>		
+  </tr>
+  <tr>
+    <td>Owners</td>
+    <td style="text-align:right;">{{post['owners']}}</td>		
+  </tr>
+  <tr>
+    <td>Milage</td>
+    <td style="text-align:right;">{{post['milage']}} miles</td>		
+  </tr>
+  <tr>
+	{% if extras|length > 1 %}	  
+    <td>Features</td>
+    <td style="text-align:right;">
+		{% for extra in extras %}{{extra}}<br>{%endfor%}			
+	</td>	
+    {% else %}
+    <td> </td>
+	<td style="text-align:right;"> For further details, please inquire within.</td>
+    {% endif %}	
+  </tr>
+
+</table>
+
+</overview-box>
+
+</car-info>
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58459204-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!doctype html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=telephone><h3>tel: 0131 663 2474</h3></div>
+<body style="background-color:#5e8ebf">
+<div class=test>
+<div class=page>
+  <h1>John Inglis Car Sales</h1>
+  <h2>Quality Used Cars in Eskbank</h2>
+  <div class=metanav>
+	<a href="{{ url_for('home') }}" class="selector">home</a>
+	<a href="{{ url_for('stocklist') }}" class="selector">stocklist</a>
+	<a href="{{ url_for('about') }}" class="selector">about</a>
+	<a href="{{ url_for('findus') }}" class="selector">find us</a>
+  </div>
+
+  {% if user.email %}
+  <div class=metanav>
+	<a href="{{ url_for('upload') }}" class="selector">upload</a>
+    <a href="{{ url_for('logout') }}" class="selector">log out</a>
+  </div>  
+  {% endif %}
+ 
+  
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+  
+  <hr>
+  <footer>
+ John Inglis Car Sales - 4 Dalhousie Road - Eskbank - Dalkieth - EH22 3AS
+ <br><br>VAT No. 327 6711 67
+ <br><br>Opening Hours:
+ <br>Monday to Friday -	8:30am - 5:30pm
+ <br>Saturday -			10:00am - 5:00pm
+ <br>Sunday	-			12:00am - 5:00pm
+ <br><br>Telephone - 0131 663 2474
+ <br>Email - johningliscarsales@googlemail.com
+ <br><br>
+</footer>
+</div>
+</body>

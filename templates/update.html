@@ -1,0 +1,40 @@
+<!doctype html>
+{% extends "layout.html" %}
+{% block body %}
+<title>Update Car: {{post['make']}} {{post['model']}} {{post['trim']}} - John Inglis Car Sales</title>
+<h2>Update Car: {{post['make']}} {{post['model']}} {{post['trim']}}</h2>
+<form action = "" method=post enctype=multipart/form-data>
+
+	<p>Year: 		<br><input type=number size=30 name=year requiredv value={{post['year']}}>
+	<p>Plate year:	<br><input type=text size=30 name=plate requiredv value={{post['plate']}}>
+    <p>Make: 		<br><input type=text size=30 name=make required value="{{post['make']}}">
+    <p>Model: 		<br><input type=text size=30 name=model required value="{{post['model']}}">
+    <p>Variation: 	<br><input type=text size=30 name=trim required value="{{post['trim']}}"> 
+	<p>Colour: 		<br><input type=text size=30 name=colour required value="{{post['colour']}}">
+	<p>Transmission:<br><input type=text size=30 name=transmission required value="{{post['transmission']}}">
+	<p>Doors: 		<br><input type=text size=30 name=doors required value="{{post['doors']}}">
+	<p>Owners: 		<br><input type=number size=30 name=owners required value={{post['owners']}}>
+	
+	<br><br>Features
+	<br><input type="checkbox" name="ac" {% if post['ac']==1%}checked="True"{% endif %}value="True">Air Conditioning
+	<br><input type="checkbox" name="alloys" {% if post['alloys']==1%}checked="True"{% endif %}value="True">Alloy Wheels
+	<br><input type="checkbox" name="abs" {% if post['abs']==1%}checked="True"{% endif %} value="True">Anti-Lock Braking System
+	<br><input type="checkbox" name="cd" {% if post['cd']==1%}checked="True"{% endif %}value="True">CD Player
+	<br><input type="checkbox" name="cl" {% if post['cl']==1%}checked="True"{% endif %}value="True">Central Locking
+	<br><input type="checkbox" name="em" {% if post['em']==1%}checked="True"{% endif %}value="True">Electric Mirrors
+	<br><input type="checkbox" name="eps" {% if post['eps']==1%}checked="True"{% endif %}value="True">Electric Power Steering
+	<br><input type="checkbox" name="ew" {% if post['ew']==1%}checked="True"{% endif %}value="True">Electric Windows
+	<br><input type="checkbox" name="fogs" {% if post['fogs']==1%}checked="True"{% endif %}value="True">Front Fog Lights
+	<br><input type="checkbox" name="fsh" {% if post['fsh']==1%}checked="True"{% endif %} value="True">Full Service History
+	<br><input type="checkbox" name="ipod" {% if post['ipod']==1%}checked="True"{% endif %}value="True">iPod Lead
+	<br><input type="checkbox" name="pas" {% if post['pas']==1%}checked="True"{% endif %}value="True">Power Assisted Steering<br><br>
+
+	<p>Extra Features: 		<br><input type=text size=30 name=extras required value="{%for x in post['extras']%}{{x.lstrip(' ')}},{%endfor%}"> enter commas after each e.g "Leather Seats,Spoiler"
+    <p>Price: 		<br><input type=number size=text name=price value={{post['price']}} required> if price is unknown, please leave as "-1".
+	<p>Milage: 		<br><input type=number size=text name=milage value={{post['milage']}} required><br><br>
+
+	<p><input type=submit value=Update>
+
+</form>
+
+{% endblock %}

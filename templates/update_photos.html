@@ -1,0 +1,24 @@
+<!doctype html>
+{% extends "layout.html" %}
+{% block body %}
+<title>Update Photos - John Inglis Car Sales</title>
+<h2>Updating Photos for  {{post['make']}} {{post['model']}} {{post['trim']}}</h2>
+Upload photos in the order you would like them to be in.
+<br>The first photo will appear as the Main photo and in the stocklist. 
+<br>Pressing upload will delete any current photos associated with this vehicle.
+<br><br>
+
+<form action = "" method=post enctype=multipart/form-data>
+
+	<p><input type=file name=file1>
+	<p><input type=file name=file2>
+	<p><input type=file name=file3>
+	<p><input type=file name=file4>
+	<p><input type=file name=file5><br><br>
+
+	<p><input type=submit value=Upload>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block body %}
+<title>Stocklist - John Inglis Car Sales</title>
+  <ul class=entries>
+  {% for post in posts %}
+    <li>
+		
+		{% for image in images %}
+			{% if image['numberplate'] == post['numberplate']%}
+			<div class="stocklist-images">
+			<a href="{{ url_for('car', var=post['numberplate'])}}">
+				<img src="{{image['path']}}" style="width:150px">
+			</a>  
+		
+			{% endif %}
+		{% endfor %}
+		
+		{% if user.email %}
+		<div class="stocklist-user-options">
+		
+			<a href="{{ url_for('update', var=post['numberplate'])}}" class="stocklist-user-option">Edit Car</a> <br>
+			<a href="{{ url_for('updatephotos', var=post['numberplate'])}}" class="stocklist-user-option">Add/Replace Photos</a><br>
+			<a href="{{ url_for('delete', var=post['numberplate'])}}" class="stocklist-user-option" 
+					onclick = "if (! confirm('Are you sure you want to delete this car?')) return false;">Delete Car</a><br>
+		
+		</div>	
+		{% endif %}	
+		</div>
+		<div class="stocklist-title">
+		<a href="{{ url_for('car', var=post['numberplate'])}}" class="stocklist-title">
+  			{{ post['make'] }} {{ post['model']}} {{ post['trim']}}
+		</a>
+		<div>
+		
+		<div class="stocklist-info">
+
+		<table style="width:30em;">
+		  <tr>
+		    <td>Year</td>
+		    <td style="text-align:right;">{{post['year']}} ({{post['plate']}} plate)</td>		
+		  </tr>
+		  <tr>
+		    <td>Colour</td>
+		    <td style="text-align:right;">{{post['colour']}}</td>		
+		  </tr>
+		  <tr>
+		    <td>Doors</td>
+		    <td style="text-align:right;">{{post['doors']}}</td>		
+		  </tr>
+		  <tr>
+		    <td>Transmission</td>
+		    <td style="text-align:right;">{{post['transmission']}}</td>		
+		  </tr>
+		  <tr>
+		    <td>Owners</td>
+		    <td style="text-align:right;">{{post['owners']}}</td>		
+		  </tr>
+		  <tr>
+		    <td>Milage</td>
+		    <td style="text-align:right;">{{post['milage']}} miles</td>		
+		  </tr>
+		  <tr>
+		    <td>Price</td>
+		    <td style="text-align:right;color:white;">{% if post['price'] != "-1" %}£{{post['price']}}{% else %}No Price Available. Please call for details.{% endif %}</td>		
+		  </tr>
+		</table>
+
+		</div>
+
+			
+	
+
+		
+	</li>
+		
+  {% else %}
+    <li><em>No cars here!</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

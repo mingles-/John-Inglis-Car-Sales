@@ -1,0 +1,76 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body            { font-family: sans-serif; background: #eee; }
+
+a 			    { font: calibri; color: #5e8ebf; text-decoration:none;}
+
+h1,h2,h3,h4,h5  {font-size: 1.4em; font: calibri; color:white; font-weight:normal;}
+
+h1              { font-size: 2.5em; margin-bottom:0.3em; margin-top:0.5em; text-align:center;}
+h2              { margin-top:0em; margin-bottom:1em; text-align:center;}
+h3				{ text-align:right;}
+h4				{ font-weight:lighter;margin-bottom:0.2em; overflow:hidden}
+
+.priceid		{ float:right; font-weight:bold; }
+
+.page           { margin: 1em auto; width: 45em; margin-top: 0em;
+                  padding: 0.8em; background: #94b3d4; }
+.telephone		{ margin: 1em auto; width: 45em; padding-top:0.5em; margin-bottom:0;}
+	
+.thumbnail-box	{ width:auto; margin-top:0.5em; margin-bottom:0.5em; padding:0em; height:3em; text-align:center; overflow:hidden}
+
+.stocklist-title{ display:inline-block;vertical-align:top;padding-left:0.2em;}
+
+.stocklist-user-options {text-color:black; text-align:left; padding-top:0.5em;}
+
+.stocklist-info {  vertical-align:top; padding-left:0.2em;}
+
+.stocklist-title{ display:inline-block;vertical-align:top;padding-left:0.2em; overflow:hidden}
+
+.stocklist-images{ display:inline-block;vertical-align:top;}
+
+li				{ padding-bottom:1em;}
+image-box		{ width:49%; display:inline-block; vertical-align:top;}
+overview-box	{ display:inline-block; width:48%; vertical-align:top; margin-left:2%; margin-top:0.5em;}
+
+.left-stuff		{ display:inline-block;}
+
+footer			{ display:block; color:white; font-size:0.7em; padding-left:2em;}
+
+td				{color:black; padding:0.2em; }
+tr				{background:#5e8ebf; }
+table 			{border-collapse: collapse; margin-top:0.2em;}
+hr				{margin:1em; background-color:white; }
+tab				{padding-left:2em;}
+
+tr:nth-of-type(even) { background-color: #94b3d4;}
+
+.entries        { list-style: none; margin: 0; padding: 0; }
+.entries li     { margin: 0.8em 1.2em; }
+.entries li h2  { margin-left: -1em; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl   { font-weight: bold; }
+.metanav        { text-align: center; font-size: 1.4em; padding-top: 0em;
+                  padding-bottom: 1em;}
+.flash          { background: #cee5F5; padding: 0.5em;
+                  border: 1px solid #aacbe2; }
+.error          { background: #f0d6d6; padding: 0.5em; }
+
+a.selector, a.selector:visited
+				{color:white; text-decoration:none; font:calibri; padding-left:0.7em;
+				 padding-right:0.7em;	font-weight:lighter; opacity:0.7;
+				}
+a.selector:hover {opacity:1;}
+
+a.stocklist-user-option, a.stocklist-user-option:visited
+				{color:black; text-decoration:none; font:calibri; opacity:0.7;}
+				
+a.stocklist-user-option:hover {opacity:1;}
+
+a.stocklist-title, a.stocklist-user-option:visited
+				{color:black; display:inline-block; font-size:1.4em; text-decoration:none; font:calibri; opacity:0.7;}
+				
+a.stocklist-title:hover {opacity:1;}
+
+table.stocklist {}
+
