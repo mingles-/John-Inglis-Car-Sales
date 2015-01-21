@@ -46,7 +46,7 @@ def home():
             
     return render_template('home.html')
     
-@app.route('/stocklist', methods=['GET'])
+@app.route('/stocklist')
 def stocklist():
     posts = []
     images = []
