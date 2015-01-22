@@ -1,5 +1,6 @@
 from datetime import datetime
 import os, glob
+import sys
 
 from flask import (
     Flask,
@@ -27,7 +28,7 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/car-photos')
 ALLOWED_EXTENSIONS = set(['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'])
 
 app = Flask(__name__)
-app.config['DEBUG'] = False
+app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'superminglesstrengthkey'
 app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
 app.config['STORMPATH_APPLICATION'] = 'John Inglis Car Sales'
@@ -43,15 +44,19 @@ stormpath_manager = StormpathManager(app)
 
 @app.route('/')
 def home():
-            
+    #mrint("test home")        
     return render_template('home.html')
     
 @app.route('/stocklist')
 def stocklist():
     posts = []
     images = []
-    print "running stocklist"
+    mrint("test stock pre storm")
+    if stormpath_manager.application.accounts == Nothing:
+        mrint("not getting anything")
+        
     for account in stormpath_manager.application.accounts:
+        mrint("test stock post storm")
         if account.custom_data.get('posts'):
             posts.extend(account.custom_data['posts'])
             
@@ -361,6 +366,10 @@ def car(var):
 
 if __name__ == '__main__':
     app.run()
+    
+def mrint(to_print):
+    print to_print
+    sys.stdout.flush()
     
 #stormpath = require('express-stormpath');    
 '''
