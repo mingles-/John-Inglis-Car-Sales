@@ -50,6 +50,7 @@ def home():
 def stocklist():
     posts = []
     images = []
+    print "running stocklist"
     for account in stormpath_manager.application.accounts:
         if account.custom_data.get('posts'):
             posts.extend(account.custom_data['posts'])
