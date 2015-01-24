@@ -51,12 +51,12 @@ def home():
 def stocklist():
     posts = []
     images = []
-    mrint("test stock pre storm")
-    if stormpath_manager.application.accounts == Nothing:
-        mrint("not getting anything")
+    #mrint("test stock pre storm")
+    #if stormpath_manager.application.accounts == Nothing:
+        #mrint("not getting anything")
         
     for account in stormpath_manager.application.accounts:
-        mrint("test stock post storm")
+        #mrint("test stock post storm")
         if account.custom_data.get('posts'):
             posts.extend(account.custom_data['posts'])
             
