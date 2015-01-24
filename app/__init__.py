@@ -28,10 +28,10 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/car-photos')
 ALLOWED_EXTENSIONS = set(['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'])
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'superminglesstrengthkey'
-app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
-app.config['STORMPATH_APPLICATION'] = 'John Inglis Car Sales'
+#app.config['DEBUG'] = True
+#app.config['SECRET_KEY'] = 'superminglesstrengthkey'
+#app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
+#app.config['STORMPATH_APPLICATION'] = 'John Inglis Car Sales'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['STORMPATH_ENABLE_REGISTRATION'] = False
 app.config['STORMPATH_ENABLE_GIVEN_NAME'] = False
