@@ -19,7 +19,7 @@
 		<div class="stocklist-user-options">
 		
 			<a href="{{ url_for('update', var=post['numberplate'])}}" class="stocklist-user-option">Edit Car</a> <br>
-			<a href="{{ url_for('updatephotos', var=post['numberplate'])}}" class="stocklist-user-option">Add/Replace Photos</a><br>
+			<!--<a href="{{ url_for('updatephotos', var=post['numberplate'])}}" class="stocklist-user-option">Add/Replace Photos</a><br>-->
 			<a href="{{ url_for('delete', var=post['numberplate'])}}" class="stocklist-user-option" 
 					onclick = "if (! confirm('Are you sure you want to delete this car?')) return false;">Delete Car</a><br>
 		
