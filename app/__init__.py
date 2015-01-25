@@ -30,8 +30,6 @@ ALLOWED_EXTENSIONS = set(['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'])
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-#app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
-#app.config['STORMPATH_APPLICATION'] = 'JohnInglisCarSales'
 app.config['STORMPATH_API_KEY_ID'] = environ.get('STORMPATH_API_KEY_ID')
 app.config['STORMPATH_API_KEY_SECRET'] = environ.get('STORMPATH_API_KEY_SECRET')
 app.config['STORMPATH_APPLICATION'] = environ.get('STORMPATH_APPLICATION')
@@ -59,17 +57,11 @@ def stocklist():
     posts = []
     images = []
     test = "test"
-    #mrint("test stock pre storm")
-    #if stormpath_manager.application.accounts == Nothing:
-        #mrint("not getting anything")
         
     for account in stormpath_manager.application.accounts:
-        #mrint("test stock post storm")
         if account.custom_data.get('posts'):
             posts.extend(account.custom_data['posts'])
-            
-            #for filename in glob.glob("static/car-photos/"+str(account.custom_data['posts']['numberplate'])+"_*"):
-    
+                
     for post in posts:
         var = (post['numberplate'])
         if (glob.glob("static/car-photos/"+str(var)+"_1*")):
@@ -379,9 +371,3 @@ def mrint(to_print):
     print to_print
     sys.stdout.flush()
     
-#stormpath = require('express-stormpath');    
-'''
-app.use(stormpath.init(app, {
-  enableRegistration: false,
-}));
-'''
