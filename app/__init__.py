@@ -25,7 +25,7 @@ from flask.ext.stormpath import (
 from werkzeug import secure_filename
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join('static/car-photos')
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/car-photos')
 ALLOWED_EXTENSIONS = set(['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'])
 
 app = Flask(__name__)
