@@ -1,6 +1,7 @@
 from datetime import datetime
 import os, glob
 import sys
+from os import environ
 
 from flask import (
     Flask,
@@ -30,8 +31,13 @@ ALLOWED_EXTENSIONS = set(['jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF'])
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'superminglesstrengthkey'
-app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
-app.config['STORMPATH_APPLICATION'] = 'John Inglis Car Sales'
+#app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
+#app.config['STORMPATH_APPLICATION'] = 'JohnInglisCarSales'
+app.config['STORMPATH_API_KEY_ID'] = environ.get('STORMPATH_API_KEY_ID')
+app.config['STORMPATH_API_KEY_SECRET'] = environ.get('STORMPATH_API_KEY_SECRET')
+app.config['STORMPATH_APPLICATION'] = environ.get('STORMPATH_APPLICATION')
+
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['STORMPATH_ENABLE_REGISTRATION'] = False
 app.config['STORMPATH_ENABLE_GIVEN_NAME'] = False
